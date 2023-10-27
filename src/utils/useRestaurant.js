@@ -5,7 +5,7 @@ import {  toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-// custom  hook
+
 export const useRestaurant = (resId) => {
   const [category, setCategory] = useState([]);
   const [restaurant, setRestaurant] = useState(null);

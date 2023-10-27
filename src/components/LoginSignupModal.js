@@ -20,12 +20,12 @@ const LoginSignupModal = ({ isOpen, onClose }) => {
           {isLoginForm ? (
             <div>
               <h2>Login</h2>
-              {/* Add your login form here */}
+             
             </div>
           ) : (
             <div>
               <h2>Sign Up</h2>
-              {/* Add your sign-up form here */}
+             
             </div>
           )}
         </div>

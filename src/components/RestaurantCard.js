@@ -1,4 +1,4 @@
-import { useContext } from "react";
+
 import { IMG_CDN_URL } from "../../config";
 import { AiFillStar } from "react-icons/ai";
 

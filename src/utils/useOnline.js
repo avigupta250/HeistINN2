@@ -19,9 +19,6 @@ const useOnline=()=>{
 
         window.addEventListener("offline",handleOffline)
 
-        // so when we move to other route we need to clean up our created mess i.e eventlistner
-        // on order to remove eventlistner we need to pass the same function while creating it
-
 
         return()=>{
 

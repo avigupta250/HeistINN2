@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-// import Footer from "./components/babbarFooter";
+
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./components/About";
 import ErrorPage from "./components/ErrorPage";
@@ -17,7 +17,7 @@ import ErrorPage from "./components/ErrorPage";
 import ContactUsPage from "./components/ContactPage";
 import RestrauMenu from "./components/RestrauMenu";
 // import Profile from "./components/ProfileClass";
-import Profile from "./components/Profile";
+
 import { Suspense, lazy } from "react";
 import {Provider} from "react-redux"
 import store from "./utils/store";
@@ -61,12 +61,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
-        children: [
-          {
-            path: "profile", 
-            element: <Profile name={"Avi gupta"} />,
-          },
-        ],
+       
       },
       {
         path: "/contact",

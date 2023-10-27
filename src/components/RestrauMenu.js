@@ -149,14 +149,3 @@ const RestrauMenu = () => {
 
 export default RestrauMenu;
 
-// console.log("toggleIndex Called from RestrauMenu.js",index)
-
-// if(arr[index]===false){
-//   console.log("printing index value",arr[index])
-//   arr.fill(false);
-//   arr[index]=true;
-// }else{
-//   arr.fill(false);
-// }
-
-// }
