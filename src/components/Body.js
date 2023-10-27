@@ -64,7 +64,7 @@ const Body = () => {
   console.log("render from body.js");
   console.log("All restau", allRestaurant);
 
-  // Conditional Rendering
+
   return allRestaurant?.length === 0 ? (
     <Shimmer />
   ) : (

@@ -50,7 +50,7 @@ const AuthModal = () => {
       </div>
       <form>
        
-       {/* Common form fields for both Sign Up and Login */}
+      
        <div className="mb-4">
          <label className="block mb-2" htmlFor="email">
            Email
