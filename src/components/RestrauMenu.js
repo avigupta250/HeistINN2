@@ -9,36 +9,29 @@ import { HiClock, HiOutlineCurrencyRupee } from "react-icons/hi";
 
 const RestrauMenu = () => {
   const { resId } = useParams();
-  // const [show, setShow] = useState(false);
 
   const { restaurant, category } = useRestaurant(resId);
+  console.log("category", category.length);
 
-  const catLength = category.length;
+  const catLength = category.length || 20;
 
+  const array = new Array(catLength).fill(true);
 
-  const array=new Array(catLength).fill(false);
-  // const array = [];
-  // for (let i = 0; i < catLength; i++) {
-  //   array[i] = false;
-  // }
-
-  console.log(array);
   const [arr, setArr] = useState(array);
-  // arr[0] = true;
+
   console.log("Printing arrList", arr);
 
   function toggleIndex(index) {
-    // const updatedArr = Array(catLength).fill(true);
-    // updatedArr[index] = false;
-    // setArr(updatedArr);
+    if (arr[index] == true) {
+      const updArr = [...arr];
 
-    if (arr[index] === false) {
-      const updatedArr = Array(catLength).fill(false);
-      updatedArr[index] = true;
-      setArr(updatedArr);
+      updArr[index] = false;
+      setArr(updArr);
     } else {
-      const updatedArr = Array(catLength).fill(false);
-      setArr(updatedArr);
+      const updArr = [...arr];
+
+      updArr[index] = true;
+      setArr(updArr);
     }
   }
 
@@ -106,11 +99,8 @@ const RestrauMenu = () => {
           <ul>
             {category?.map((cate, index) => {
               return (
-                <div className="relative max-w-[800px] ">
-                  <div
-                    className="m-6 flex -mb-[2px]  max-w-[800px] relative "
-                    key={index}
-                  >
+                <div className="relative max-w-[800px] " key={index}>
+                  <div className="m-6 flex -mb-[2px]  max-w-[800px] relative ">
                     <button
                       onClick={() => {
                         toggleIndex(index);
@@ -132,11 +122,12 @@ const RestrauMenu = () => {
                   </div>
                   <div className="w-[800px]    h-[15px] bg-[#F1F1F6]"></div>
 
-                 
-                    {arr[index] && (
-                      <ItemMenu itemCard={cate?.card?.card?.itemCards} />
-                    )}
-          
+                  {arr[index] && (
+                    <ItemMenu
+                      itemCard={cate?.card?.card?.itemCards}
+                      key={index}
+                    />
+                  )}
                 </div>
               );
             })}
@@ -148,4 +139,3 @@ const RestrauMenu = () => {
 };
 
 export default RestrauMenu;
-

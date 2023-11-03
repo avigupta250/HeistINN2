@@ -64,7 +64,7 @@ const Header = () => {
                     <div className=" text-2xl font-light">
                       <CgProfile />
                     </div>
-                    <span  className="">{(User=="")?(<spna>Sign In</spna>):(<div className="text-orange-400 flex bg-black h-[23px] min-w-[50px] p-[8px] max-w-[250px] mx-auto items-center justify-center  rounded-xl">{User}</div>)}</span>
+                    <span  className="">{(User=="")?(<span>Sign In</span>):(<div className="text-orange-400 flex bg-black h-[23px] min-w-[50px] p-[8px] max-w-[250px] mx-auto items-center justify-center  rounded-xl">{User}</div>)}</span>
                     
                   </div></Link>
                 </li>
