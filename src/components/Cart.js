@@ -16,9 +16,9 @@ const Cart = () => {
   
   let price = 0;
   CartItems.forEach((item) => {
-    price += item?.card?.info?.price
-      ? item?.card?.info?.price / 100
-      : item?.card?.info?.defaultPrice / 100;
+    price +=item?.price
+      ? item?.price / 100
+      : defaultPrice / 100;
   });
 
   console.log("Total Peice", price);
@@ -42,27 +42,27 @@ const Cart = () => {
               <div className="flex flex-col p-5 gap-4">
                 {CartItems.map((item, index) => {
                   return (
-                    <div>
+                    <div key={index}>
                       <div className="flex border relative border-gray-200 p-2   gap-3">
                         <img
                           className="w-[100px] h-[90px]  object-cover"
-                          src={IMG_CDN_URL + item?.card?.info?.imageId}
+                          src={IMG_CDN_URL + item?.imageId}
                         ></img>
                         <div>
                           <h2 className=" text-gray-600 ml-1 w-[230px] flex flex-wrap font-serif font-bold">
-                            {item?.card?.info?.name}
+                            {item?.name}
                           </h2>
                           <span className="ml-1 text-gray-700">
                             {" "}
                             ₹
-                            {item?.card?.info?.price
-                              ? item?.card?.info?.price / 100
-                              : item?.card?.info?.defaultPrice / 100}
+                            {item?.price
+                              ? item?.price / 100
+                              : item?.defaultPrice / 100}
                           </span>
                         </div>
                         <button
                           onClick={() => {
-                            dispatch(removeItem());
+                            dispatch(removeItem(item));
                             toast.info("Item removed from Cart", {
                               position: toast.POSITION.TOP_RIGHT,
                             });

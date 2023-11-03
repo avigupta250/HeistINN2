@@ -14,11 +14,8 @@ const RestrauMenu = () => {
   console.log("category", category.length);
 
   const catLength = category.length || 20;
-
   const array = new Array(catLength).fill(true);
-
   const [arr, setArr] = useState(array);
-
   console.log("Printing arrList", arr);
 
   function toggleIndex(index) {

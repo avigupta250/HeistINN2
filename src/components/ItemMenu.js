@@ -15,14 +15,14 @@ const dispatch=useDispatch();
   const AddFoodItem=(item)=>{
   dispatch(addItem(item));
   toast.success("Item Added to Cart", {
-    position: toast.POSITION.TOP_RIGHT
+    position: toast.POSITION.TOP_CENTER
 })
 
   }
   const removeFoodItem=(item)=>{
-  dispatch(removeItem());
+  dispatch(removeItem(item));
   toast.info("Item removed from Cart", {
-    position: toast.POSITION.TOP_RIGHT
+    position: toast.POSITION.TOP_CENTER
 })
   }
 
@@ -35,7 +35,7 @@ const dispatch=useDispatch();
 
 
   // console.log("ItemCard type", typeof props);
-  // console.log("printing item card", props.itemCard);
+  console.log("printing item card", props.itemCard);
   return props.itemCard.map((item, index) => {
     return (
      <div className=" flex ">
