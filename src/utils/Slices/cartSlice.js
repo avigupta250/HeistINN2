@@ -7,6 +7,7 @@ const cartSlice = createSlice({
   },
   reducers: {
     addItem: (state, action) => {
+    
       const item = action.payload;
       const { id, name, price, imageId } = item.card.info;
       const existingItem = state.items.find((item) => item.id === id);
@@ -16,19 +17,21 @@ const cartSlice = createSlice({
       } else {
         state.items.push({id,name,price,imageId,quantity:1});
       }
-      
-      
-      // state.items.push(action.payload);
+ 
     },
     removeItem: (state, action) => {
-      // state.items.pop();
-
-
+  
       const item = action.payload;
-      let { id, quantity } = item;
+      console.log("item form remove cart",item)
+   
+      const id=item.id;
+      const existingItem = state.items.find((item) => item.id === id);
+ 
+    console.log("printing id",id)
 
-      if (quantity >0) {
-        item.quantity = quantity - 1;
+
+      if (existingItem.quantity >1) {
+        existingItem.quantity-=1;
       } else {
         state.items = state.items.filter((item) => item.id !== id);
       }

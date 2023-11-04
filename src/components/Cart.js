@@ -3,10 +3,11 @@ import { IMG_CDN_URL } from "../../config";
 import { LiaRupeeSignSolid } from "react-icons/lia";
 import { removeItem } from "../utils/Slices/cartSlice";
 import { Link } from "react-router-dom";
+import {RxCross2} from "react-icons/rx"
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DeliveryAdd from "./DeliveryAdd.js";
-// import {Cart} from "../assets/Cart.png"
+
 
 const Cart = () => {
   const CartItems = useSelector((store) => store.cart.items);
@@ -16,9 +17,9 @@ const Cart = () => {
   
   let price = 0;
   CartItems.forEach((item) => {
-    price +=item?.price
-      ? item?.price / 100
-      : defaultPrice / 100;
+    price +=(item?.price)
+      ? (item?.quantity*item?.price / 100)
+      : (item.defaultPrice / 100);
   });
 
   console.log("Total Peice", price);
@@ -42,7 +43,9 @@ const Cart = () => {
               <div className="flex flex-col p-5 gap-4">
                 {CartItems.map((item, index) => {
                   return (
-                    <div key={index}>
+                    <div key={index} className="flex">
+                    <div className="flex items-center">
+                    <div className="text-orange-600 text-xl">{item.quantity}</div><div><RxCross2/></div>
                       <div className="flex border relative border-gray-200 p-2   gap-3">
                         <img
                           className="w-[100px] h-[90px]  object-cover"
@@ -73,6 +76,7 @@ const Cart = () => {
                         </button>
                       </div>
                     </div>
+                    </div>
                   );
                 })}
 
@@ -101,14 +105,14 @@ const Cart = () => {
         </div>
       </div>
       ):(
-      <div className="flex h-[80vh] flex-col gap-4 justify-center items-center">
+      <div className="flex h-[100vh] mb-0 flex-col gap-4 justify-center items-center">
         <h1 className=" text-gray-600 text-[50px] flex-wrap font-serif font-bold">
           Your Cart is Empty
         </h1>
         <h1 className=" text-gray-400 text-[30px] flex-wrap font-serif font-bold">
           You can go to home page to view more restaurants{" "}
         </h1>
-        <Link to="/">
+        <Link to="/home">
           {" "}
           <button className="h-[40px] p-3 flex items-center  text-white text-[20px] font-[900] leading-[29px]  bg-orange-500">
             SEE RESTAURANTS NEAR YOU

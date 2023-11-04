@@ -2,11 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-    
-  } */
+
   .header {
     box-shadow: 0 15px 40px -20px rgba(40, 44, 63, 0.15);
     /* position: fixed; */
@@ -46,9 +42,7 @@
   transition: all 4ms;
   cursor: pointer;
 }
-.item-menu{
-  /* position:auto !important; */
-}
+
 
 .modalDiv{ 
    height: 100vh;
@@ -75,28 +69,7 @@
 }  
 
 
-  /* @layer utilities {
-    ::-webkit-scrollbar {
-      width: 0px;
-      height: 10px;
-    }
   
-    -webkit-scrollbar-track {
-      border-radius: 100vh;
-      background: #ff0000;
-    }
-  
-    .scrollbar::-webkit-scrollbar-thumb {
-      background: #9b0c0c;
-      border-radius: 100vh;
-      border: 3px solid #d5ed00;
-    }
-  
-    .scrollbar::-webkit-scrollbar-thumb:hover {
-      background: #ff00c8;
-    }
-  } */
-   
 
   /* Style the scrollbar track */
 
@@ -107,21 +80,24 @@
     background: #ededed;
   }
 ::-webkit-scrollbar {
-  width: 10px; /* Width of the scrollbar */
+  width: 10px; 
 }
 
-/* Style the scrollbar thumb (the draggable part) */
+
 ::-webkit-scrollbar-thumb {
-  background: #000000; /* Color of the thumb */
-  border-radius: 6px; /* Rounded corners for the thumb */
+  background: #000000; 
+  border-radius: 6px; 
 }
 
-/* Style the scrollbar track when hovering over it */
 ::-webkit-scrollbar:hover {
-  background: #d8be11; /* Color of the track on hover */
+  background: #d8be11; 
 }
 
-/* Style the scrollbar thumb when hovering over it */
 ::-webkit-scrollbar-thumb:hover {
-  background: #a08311; /* Color of the thumb on hover */
+  background: #a08311; 
 }
+html, body {
+  scroll-behavior: auto;
+  scroll-padding-top: 0;
+}
+

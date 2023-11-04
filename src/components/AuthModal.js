@@ -46,13 +46,6 @@ const AuthModal = () => {
 
     const { firstName, lastName, email, password, confirmPassword } = formData;
 
-    // console.log("Submitted Data:", {
-    //   firstName,
-    //   lastName,
-    //   email,
-    //   password,
-    //   confirmPassword,
-    // });
     dispatch(setModal(false));
     dispatch(setUser(firstName));
     console.log("loggedIn User", User);

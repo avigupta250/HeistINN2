@@ -10,18 +10,16 @@ import { RiSearchLine } from "react-icons/ri";
 import { addIntoRecentSearch } from "../utils/Slices/RecentSearchSlice";
 
 const SearchBar = () => {
-  // const CartItems = useSelector((store) => store.cart.items);
-  const [searchItem, setSearchItem] = useState("");
-  // const [recentsearch, setRecentSearch] = useState([
 
-  // ]);
+  const [searchItem, setSearchItem] = useState("");
+
   let recentsearch = useSelector((store) => store.allRecentSearch.RecentSearch);
   const dispatch = useDispatch();
 
   const [filterRestaurant, setFilterRestaurant] = useState([]);
 
   function clearRecentSearch() {
-    // setRecentSearch([]);
+
     dispatch(addIntoRecentSearch([]));
     toast.info("Cleared", {
       position: toast.POSITION.TOP_CENTER,
@@ -29,19 +27,16 @@ const SearchBar = () => {
   }
 
   const allRestaurant = useSelector((store) => store.allRest.AllRestItems);
-  const [toggle, setToggle] = useState("true");
   console.log("All restau from Search BAr", allRestaurant);
 
   const filterData = (searchItem) => {
     dispatch(addIntoRecentSearch(recentsearch.concat(searchItem)));
-    // setToggle(false);
+    
     const data = filteredRes(searchItem, allRestaurant);
     setFilterRestaurant(data);
   };
   console.log("Recent Searches", recentsearch);
-  // if (filterRestaurant.length) {
-  //   setToggle(false);
-  // }
+
   console.log("search Result filteredRestau", filterRestaurant);
 
   return (
@@ -54,9 +49,9 @@ const SearchBar = () => {
             placeholder="Let's Heist food..."
             value={searchItem}
             onChange={(e) => {
-              (e.target.value.length ===0 )?(<div></div>):( setSearchItem(e.target.value)
-              //  || filterData(searchItem)
-               );
+               setSearchItem(e.target.value)
+           
+              
             }}
           ></input>
           {!(filterRestaurant.length > 0) ? (
@@ -108,7 +103,7 @@ const SearchBar = () => {
                         </div>
                         <button
                           onClick={() => {
-                            filterData(searchItem);
+                            filterData(search);
                           }}
                         >
                           <div className="text-[#686B78] text-lg">{search}</div>
