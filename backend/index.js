@@ -1,7 +1,9 @@
 const express=require("express");
 const connectDB=require("./config/connectDB")
+const paymentroute=require("./routes/paymentroute")
 const app =express();
 require("dotenv").config();
+
 
 
 const PORT=process.env.PORT||4000;
@@ -10,6 +12,9 @@ const PORT=process.env.PORT||4000;
 
 
 app.use(express.json())
+
+app.use("/api",paymentroute);
+
 
 
 app.listen(PORT, () => {
@@ -21,4 +26,4 @@ app.listen(PORT, () => {
   });
 
 
-  // connectDB();
+  connectDB();

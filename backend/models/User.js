@@ -30,7 +30,5 @@ const userSchema=new mongoose.Schema({
             type:Number
         }
     },
-    cart:{
-        
-    }
+   
 })
