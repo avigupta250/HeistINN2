@@ -7,6 +7,7 @@ import {RxCross2} from "react-icons/rx"
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import DeliveryAdd from "./DeliveryAdd.js";
+import axios from "axios";
 
 
 const Cart = () => {
@@ -22,9 +23,45 @@ const Cart = () => {
       : (item.defaultPrice / 100);
   });
 
+
+
+
   console.log("Total Peice", price);
 
   console.log("Cart Item", CartItems);
+
+
+  const checkoutHandler=async(price)=>{
+    const {data:{order}}=await axios.post("http://localhost:4000/api/checkout",{price})
+// console.log("order",data)
+    const options = {
+      key: "rzp_test_f0hT3FKF9SHXv6", // Enter the Key ID generated from the Dashboard
+      amount: order.price, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      currency: "INR",
+      name: "HeistINN",
+      description: "Hiest food Online",
+      // "image": "https://example.com/your_logo",
+      order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+      callback_url: "http://localhost:4000/api/paymentverification",
+      prefill: {
+          name: "Avinash Gupta",
+          email: "avivanced25@gmail.com",
+          contact: "9000090000"
+      },
+      notes: {
+          address: "Razorpay Corporate Office"
+      },
+      theme: {
+          color: "#3399cc"
+      }
+    }
+    
+  const razor = new window.Razorpay(options);
+  razor.open();
+    }
+  
+
+
   return (
     <div className="bg-gray-200 mt-[100px]">{
       !(CartItems.length===0)? (
@@ -93,11 +130,13 @@ const Cart = () => {
                   </h1>
                 </div>
 
+                <button onClick={()=>{checkoutHandler(price)}}>
                 <div className="bg-[#60B246] w-full h-[35px] flex justify-center items-center  ">
                   <h1 className=" text-white text-[16px] font-[900] leading-[29px]">
                     PROCEED TO PAY
                   </h1>
                 </div>
+                </button>
               </div>
               <div></div>
             </div>
@@ -123,6 +162,6 @@ const Cart = () => {
 }
     </div>
   );
-};
+}
 
 export default Cart;

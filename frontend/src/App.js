@@ -30,6 +30,7 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import LandingPage from "./components/LandingPage";
 import Carousel from "./components/Carousel";
+import PaymentSuccess from "./components/PaymentSuccess";
 // import Shimmer from "./components/Shimmer";
 
 
@@ -80,9 +81,10 @@ const appRouter = createBrowserRouter([
         element: <Login/>,
       },
       {
-        path: "/login",
-        element: <AuthModal/>,
+        path: "/paymentsuccess",
+        element: <PaymentSuccess/>,
       },
+     
       {
         path: "/search",
         element: <SearchBar />,
